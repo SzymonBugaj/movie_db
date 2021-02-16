@@ -1,12 +1,19 @@
+# Django
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from movies.models import Movie
+# 3rd-party
+from compose.movies.models import Movie
 
 
 class CustomUser(AbstractUser):
 
-    last_visit = models.DateTimeField('Last visit')
+    last_visit = models.DateTimeField(
+        'Last visit',
+        blank=True,
+        null=True,
+    )
+
     favourite_movies = models.ManyToManyField(
         Movie,
         verbose_name='Favourite movies',

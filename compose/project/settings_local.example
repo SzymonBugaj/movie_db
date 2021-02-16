@@ -10,3 +10,5 @@ DATABASES = {
         'PORT': '',
     },
 }
+
+OMDBAPI_KEY = ''

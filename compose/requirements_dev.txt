@@ -1,1 +1,4 @@
 -r requirements.txt
+
+isort==4.3.2
+flake8==3.8.4

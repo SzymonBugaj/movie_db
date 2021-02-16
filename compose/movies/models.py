@@ -1,11 +1,20 @@
+# Django
 from django.db import models
 
 
 class Movie(models.Model):
 
-    name = models.CharField(
-        'name',
+    title = models.CharField(
+        'Title',
         max_length=255,
     )
-    release_date = models.DateField('Release date')
-    box_office = models.PositiveIntegerField('Box office')
+    year_of_release = models.DateField(
+        'Release date',
+        blank=True,
+        null=True,
+    )
+    box_office = models.PositiveIntegerField(
+        'Box office',
+        blank=True,
+        null=True,
+    )
