@@ -9,6 +9,7 @@ from django.views.generic import FormView, TemplateView
 
 from .forms import MovieFindForm
 from .models import Movie
+from accounts.models import CustomUser
 
 
 class MovieFinderFormView(FormView):
@@ -86,4 +87,11 @@ class MovieListView(TemplateView):
 
 
 def add_to_favourites(request):
-    return JsonResponse({})
+    imdb_id = request.GET.get('movie_id')
+    user = request.user
+    movie = Movie.objects.get(imdb_id=imdb_id)
+    result = False
+    if movie not in user.favourite_movies.all():
+        user.favourite_movies.add(movie)
+        result = True
+    return JsonResponse({'added': result})
