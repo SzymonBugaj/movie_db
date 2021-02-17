@@ -1,6 +1,6 @@
 from django import forms
 
-from compose.movies.models import Movie
+from movies.models import Movie
 
 
 class MovieFindForm(forms.ModelForm):

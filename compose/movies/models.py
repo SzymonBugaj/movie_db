@@ -8,13 +8,26 @@ class Movie(models.Model):
         'Title',
         max_length=255,
     )
-    year_of_release = models.DateField(
+    year = models.CharField(
         'Release date',
         blank=True,
         null=True,
+        max_length=9,
     )
-    box_office = models.PositiveIntegerField(
-        'Box office',
+    imdb_id = models.CharField(
+        'IMDB id',
+        blank=True,
+        null=True,
+        max_length=20,
+    )
+    kind = models.CharField(
+        'Type',
+        blank=True,
+        null=True,
+        max_length=50,
+    )
+    poster_url = models.URLField(
+        'Poster url',
         blank=True,
         null=True,
     )

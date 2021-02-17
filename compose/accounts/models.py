@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 # 3rd-party
-from compose.movies.models import Movie
 
 
 class CustomUser(AbstractUser):
@@ -15,7 +14,7 @@ class CustomUser(AbstractUser):
     )
 
     favourite_movies = models.ManyToManyField(
-        Movie,
+        'movies.Movie',
         verbose_name='Favourite movies',
     )
 

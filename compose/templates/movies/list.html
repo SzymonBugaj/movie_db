@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <table>
+    {% for movie in movies %}
+      {% if forloop.first %}
+        {% for param in movie.keys %}
+          <th>{{ param }}</th>
+        {% endfor %}
+          <th>add to favourites</th>
+      {% endif %}
+      <tr>
+        {% for param, value in movie.items %}
+          <td>
+            {% if param == 'Poster' and value%}
+              <img src="{{ value }}" height="100">
+            {% else %}
+              {{ value }}
+            {% endif %}
+          </td>
+        {% endfor %}
+        <td><input type="button" value="Dodaj do ulubionych!" id=""></td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form method="post" action="{% url 'movies:get_movies_from_api' %}">{% csrf_token %}
+  <form method="get" enctype="multipart/form-data" action="{% url 'movies:movies_list' %}">
     {{ form.as_p }}
     <input type="submit" value="Search!">
   </form>
