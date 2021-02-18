@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% if request.user.first_name %}<p><b>first name:</b> {{ request.user.first_name }}</p>{% endif %}
+  {% if request.user.last_name %}<p><b>last name:</b> {{ request.user.last_name }}</p>{% endif %}
+  {% if request.user.username %}<p><b>login:</b> {{ request.user.username }}</p>{% endif %}
+  {% if request.user.email %}<p><b>email:</b> {{ request.user.email }}</p>{% endif %}
+  <p><b>favorites movies:</b></p>
+  {% for movie in request.user.favourite_movies.all %}
+    <ul>
+      <li>{{ movie }}</li>
+    </ul>
+  {% endfor %}
+{% endblock %}

@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('dashboard.urls', 'dashboard'), namespace='dashboard')),
     path('', include(('movies.urls', 'movies'), namespace='movies')),
+    path('', include(('users.urls', 'users'), namespace='users')),
     path('accounts/', include('allauth.urls')),
 ]
