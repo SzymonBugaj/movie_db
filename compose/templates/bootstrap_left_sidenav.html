@@ -1,0 +1,11 @@
+<div class="col-2">
+    <div class="col-12 sidenav">
+      {% if request.user %}
+      <p><a href="#">Your profile</a></p>
+      <p><a href="#">Sign out</a></p>
+      {% else %}
+      <p><a href="#">Sign in</a></p>
+      <p><a href="#">Sign up</a></p>
+      {% endif %}
+    </div>
+</div>

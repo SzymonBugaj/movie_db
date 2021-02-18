@@ -1,7 +1,7 @@
 # Django
 from django.contrib import admin
 
-from accounts.models import CustomUser
+from .models import CustomUser
 
 
 @admin.register(CustomUser)

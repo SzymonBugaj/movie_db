@@ -1,0 +1,31 @@
+<div class="container">
+  <ul class="pagination">
+
+
+    <form method="get" enctype="multipart/form-data" action="{% url 'movies:movies_list' %}">
+      <li class="page-item {% if current_page == 1 %}disabled {% endif %}"><button class="page-link" type="submit">
+        First<input type="hidden" name="page" value="1">
+        <input type="hidden" name="title" value="{{ request.GET.title }}">
+        <input type="hidden" name="year" value="{{ request.GET.year }}">
+      </button></li>
+    </form>
+
+    {% for option in page_options %}
+      <form method="get" enctype="multipart/form-data" action="{% url 'movies:movies_list' %}">
+        <li class="page-item {% if current_page == option %}disabled {% endif %}"><button class="page-link" type="submit">
+          {{ option }}<input type="hidden" name="page" value="{{ option }}">
+          <input type="hidden" name="title" value="{{ request.GET.title }}">
+          <input type="hidden" name="year" value="{{ request.GET.year }}">
+        </button></li>
+      </form>
+    {% endfor %}
+
+    <form method="get" enctype="multipart/form-data" action="{% url 'movies:movies_list' %}">
+      <li class="page-item {% if current_page == pages_no %}disabled {% endif %}"><button class="page-link" type="submit">
+        Last<input type="hidden" name="page" value="{{ pages_no }}">
+        <input type="hidden" name="title" value="{{ request.GET.title }}">
+        <input type="hidden" name="year" value="{{ request.GET.year }}">
+      </button></li>
+    </form>
+  </ul>
+</div>

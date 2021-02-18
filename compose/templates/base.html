@@ -4,19 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Movie DB</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'css/custom.css' %}" rel="stylesheet">
 </head>
 <body>
-{{ request.user.id|json_script:"user_id" }}
-
-{% block content %}
-{% endblock %}
+{% include 'bootstrap_navbar.html' %}
+<div class="container-fluid text-center">
+  <div class="row content">
+    {% include 'bootstrap_left_sidenav.html' %}
+    <div class="col-sm-8 text-left">
+      <div class="pt-3">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+    {% include 'bootstrap_right_sidenav.html' %}
+  </div>
+</div>
 
 <!-- JS -->
-<script src="{% static 'js/jquery-3.5.1.min.js'%}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/my_js.js' %}"></script>
 
 <!-- Ajax urls -->
 <script>const addToFavourites = "{% url 'movies:add_to_favourites' %}"</script>
+{% include 'bootstrap_footer.html' %}
 </body>
 </html>

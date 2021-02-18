@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <form method="get" enctype="multipart/form-data" action="{% url 'movies:movies_list' %}">
-    {{ form.as_p }}
-    <input type="submit" value="Search!">
+  <form class="form-inline" method="get" enctype="multipart/form-data" action="{% url 'movies:movies_list' %}">
+    <label for="id_{{ form.title.name }}"></label>
+    {{ form.title }}
+    <span class="text-danger text-left">{{ form.title.errors }}</span>
+    <label for="id_{{ form.year.name }}"></label>
+    {{ form.year }}
+    <span class="text-danger text-left">{{ form.year.errors }}</span>
+    <input type="hidden" name="page" value="1">
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
   </form>
 {% endblock %}

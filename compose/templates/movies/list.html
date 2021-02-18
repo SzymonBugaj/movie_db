@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
-
 {% block content %}
-  <table>
-    {% for movie in movies %}
-      {% if forloop.first %}
-        {% for param in movie.keys %}
-          <th>{{ param }}</th>
-        {% endfor %}
-          <th>add to favourites</th>
-      {% endif %}
-      <tr>
-        {% for param, value in movie.items %}
-          <td>
-            {% if param == 'Poster' and value%}
-              <img src="{{ value }}" height="100">
-            {% else %}
-              {{ value }}
-            {% endif %}
-          </td>
-        {% endfor %}
-        <td><input type="button" value="Dodaj do ulubionych!" id="fav_button_{{ movie.imdbID }}"></td>
-      </tr>
-    {% endfor %}
-  </table>
+  {% if results %}
+    <table class="table">
+      {% for movie in movies %}
+        {% if forloop.first %}
+          <thead>
+          {% for param in movie.keys %}
+            <th scope="col">{{ param }}</th>
+          {% endfor %}
+          <th scope="col">add to favourites</th>
+          </thead>
+        {% endif %}
+        <tbody>
+        <tr>
+          {% for param, value in movie.items %}
+            <td>
+              {% if param == 'Poster' %}
+                {% if value %}
+                  <img src="{{ value }}" height="100">
+                {% else %}
+                  <p>There is no poster. :( </p>
+                {% endif %}
+              {% else %}
+                {{ value }}
+              {% endif %}
+            </td>
+          {% endfor %}
+          <td><input type="button" class="btn btn-primary" value="Add to favorites!" id="fav_button_{{ movie.imdbID }}"></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+    <p>All results: {{ results }}</p>
+
+    {% include 'bootstrap_pagination.html' %}
+  {% else %}
+    {{ movies }}
+  {% endif %}
 {% endblock %}
