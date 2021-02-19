@@ -1,5 +1,10 @@
+# Standard Library
 import json
+
+# 3rd-party
 import requests
+
+# Local
 from .models import Movie
 
 
@@ -14,7 +19,7 @@ def create_url_params(request):
     for k, v in request.GET.items():
         if k in movie_field_param_dict.keys() and request.GET[k]:
             params += f'{movie_field_param_dict[k]}={request.GET[k]}&'
-    if not 'page' in request.GET:
+    if 'page' not in request.GET:
         page_no = 1
     else:
         page_no = request.GET['page']

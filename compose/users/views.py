@@ -1,5 +1,5 @@
+# Django
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.forms import model_to_dict
 from django.views.generic import TemplateView
 
 

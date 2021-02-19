@@ -2,7 +2,9 @@
 from django.urls import path
 
 # Local
-from .views import MovieFinderFormView, MovieListView, add_to_favourites
+from .views import MovieFinderFormView
+from .views import MovieListView
+from .views import add_to_favourites
 
 urlpatterns = [
     path('find_movies/', MovieFinderFormView.as_view(), name='find_movies'),

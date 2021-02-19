@@ -1,12 +1,18 @@
+# Standard Library
+import math
+
 # Django
 from django.contrib.auth.mixins import LoginRequiredMixin
-import math
 from django.http import JsonResponse
-from django.views.generic import FormView, TemplateView, ListView
+from django.views.generic import FormView
+from django.views.generic import ListView
 
+# Local
 from .forms import MovieFindForm
 from .models import Movie
-from .utils import create_url_params, get_data_from_api, create_movies
+from .utils import create_movies
+from .utils import create_url_params
+from .utils import get_data_from_api
 
 
 class MovieFinderFormView(LoginRequiredMixin, FormView):
