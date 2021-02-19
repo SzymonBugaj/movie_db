@@ -155,11 +155,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'apps_static/')
 MEDIA_URL = os.path.join(BASE_DIR, 'public/uploads/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'public/uploads/')
 
-
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:
     from .settings_local import *  # noqa: F403, F401

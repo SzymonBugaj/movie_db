@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  django:
+    build:
+      context: ./
+    ports:
+      - "6000:5000"
+    volumes:
+      - ./compose/django/app:/app
